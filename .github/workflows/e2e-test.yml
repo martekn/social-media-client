@@ -15,7 +15,7 @@ jobs:
         run: npm install
         
       - name: run cypress tests with electron
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v2
         with:
           browser: electron
           
