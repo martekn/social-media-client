@@ -11,10 +11,14 @@ jobs:
       - name: Checkout under $GITHUB_WORKSPACE
         uses: actions/checkout@main
 
+      - name: Install dependencies
+        run: npm install
+        
       - name: run cypress tests with electron
         uses: cypress-io/github-action@v6
         with:
           browser: electron
+          
         env:
           CYPRESS_USER_EMAIL: ${{secrets.USER_EMAIL}}
           CYPRESS_USER_PASSWORD: ${{secrets.USER_PASSWORD}}
