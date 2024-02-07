@@ -22,7 +22,3 @@ jobs:
         env:
           CYPRESS_USER_EMAIL: ${{secrets.USER_EMAIL}}
           CYPRESS_USER_PASSWORD: ${{secrets.USER_PASSWORD}}
-
-
-      - name: Output Secret Value
-        run: echo ${{ secrets.USER_EMAIL }}
