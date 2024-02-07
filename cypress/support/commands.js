@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("login", (email, password) => {
+  cy.get('#registerForm button.btn-outline-success[data-auth="login"]')
+    .should("be.visible")
+    .click();
+  cy.wait(500);
+  cy.get("#loginEmail").should("be.visible").type(email);
+  cy.get("#loginPassword").should("be.visible").type(password);
+  cy.get("#loginForm button[type='submit']").click();
+});
