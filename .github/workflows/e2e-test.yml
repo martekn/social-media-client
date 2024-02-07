@@ -22,8 +22,7 @@ jobs:
         env:
           CYPRESS_USER_EMAIL: ${{secrets.USER_EMAIL}}
           CYPRESS_USER_PASSWORD: ${{secrets.USER_PASSWORD}}
-          DEBUG: '@cypress/github-action, cypress:*'
 
 
       - name: Output Secret Value
-        run: echo ${{ secrets.CYPRESS_RECORD_KEY }}
+        run: echo ${{ secrets.USER_EMAIL }}
