@@ -2,7 +2,11 @@ name: Automated Unit Testing
 on: 
   pull_request:
   workflow_dispatch:
-
+  
+env:
+  USER_EMAIL: ${{secrets.USER_EMAIL}}
+  USER_PASSWORD: ${{secrets.USER_PASSWORD}}
+  
 jobs:
   run-unit-tests:
     name: Run Unit Tests
@@ -15,7 +19,7 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Install all dependencies
         run: npm install
