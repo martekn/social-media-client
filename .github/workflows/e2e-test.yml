@@ -21,6 +21,10 @@ jobs:
         
       - name: Set Cypress environment variables
         run: echo "CYPRESS_USER_EMAIL=${{ secrets.USER_EMAIL }}" >> $GITHUB_ENV
+      
+      - name: Display CYPRESS_USER_EMAIL
+        run: echo "CYPRESS_USER_EMAIL=${CYPRESS_USER_EMAIL}"
+
           
       - name: Run Cypress tests with Electron
         uses: cypress-io/github-action@v6
