@@ -19,12 +19,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: run cypress tests with electron
+      - name: Set Cypress environment variables
+        run: echo "CYPRESS_USER_EMAIL=${{ secrets.USER_EMAIL }}" >> $GITHUB_ENV
+          
+      - name: Run Cypress tests with Electron
         uses: cypress-io/github-action@v6
         with:
           browser: electron
-          
         env:
-          CYPRESS_USER_EMAIL: ${{secrets.USER_EMAIL}}
-          CYPRESS_USER_PASSWORD: ${{secrets.USER_PASSWORD}}
-          run: echo "CYPRESS_USER_EMAIL=$USER_EMAIL" >> $GITHUB_ENV
+          CYPRESS_USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          CYPRESS_USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
