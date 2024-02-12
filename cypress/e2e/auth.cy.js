@@ -6,7 +6,6 @@ describe("Authentication", () => {
 
   it("allows a registered user with valid credentials to log in", () => {
     cy.login(Cypress.env("email"), Cypress.env("password"));
-    cy.wait(500);
     cy.window().then((win) => {
       const token = win.localStorage.getItem("token");
       expect(token).to.exist;

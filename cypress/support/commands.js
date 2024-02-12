@@ -32,4 +32,5 @@ Cypress.Commands.add("login", (email, password) => {
   cy.get("#loginEmail").should("be.visible").type(email);
   cy.get("#loginPassword").should("be.visible").type(password);
   cy.get("#loginForm button[type='submit']").click();
+  cy.wait(1000);
 });
