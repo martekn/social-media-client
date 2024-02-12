@@ -6,6 +6,7 @@ global.localStorage = new LocalStorageMock();
 
 describe("Logout", () => {
   it("Clears the token from local storage", async () => {
+    localStorage.setItem("token", "MOCK_TOKEN");
     logout();
     expect(localStorage.removeItem).toHaveBeenCalledWith("token");
     expect(JSON.parse(localStorage.getItem("token"))).toEqual(null);
